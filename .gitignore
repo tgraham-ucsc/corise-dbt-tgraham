@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# VSCODE
+.vscode/
+
+# SQL Tools
+CORISE.session.sql

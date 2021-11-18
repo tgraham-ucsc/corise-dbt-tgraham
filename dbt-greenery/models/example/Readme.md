@@ -34,6 +34,30 @@ total_orders as (
          from total_hours
      ) as average_orders_per_hour
 
-     ```
+```
 
-## On average, how long does an order take from being placed to being delivered?  
+## On average, how long does an order take from being placed to being delivered?
+
+```
+with total_delivery_hours as (
+
+select  sum(EXTRACT(EPOCH FROM delivered_at - created_at )/3600)
+from dbt_tgraham.stg_orders
+where status = 'delivered'
+),
+
+total_orders as (
+select count(distinct order_id)
+from dbt_tgraham.stg_orders
+where status = 'delivered'
+)
+
+ select round((
+         select *
+         from total_delivery_hours
+     ) / (
+         select *
+         from total_orders
+     ) / 24) as average_days_per_delivery
+
+```

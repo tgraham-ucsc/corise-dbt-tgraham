@@ -39,6 +39,8 @@ total_orders as (
 ## On average, how long does an order take from being placed to being delivered?
 
 ```
+
+-- calculate diff between delivered and created to the hour
 with total_delivery_hours as (
 
 select  sum(EXTRACT(EPOCH FROM delivered_at - created_at )/3600)
@@ -46,12 +48,14 @@ from dbt_tgraham.stg_orders
 where status = 'delivered'
 ),
 
+-- calculate total orders
 total_orders as (
 select count(distinct order_id)
 from dbt_tgraham.stg_orders
 where status = 'delivered'
 )
-
+-- divide total_delivery_hours by total_orders 
+-- multiply by 24 and round to days
  select round((
          select *
          from total_delivery_hours

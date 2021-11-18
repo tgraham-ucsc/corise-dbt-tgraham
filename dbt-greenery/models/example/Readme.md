@@ -68,14 +68,40 @@ where status = 'delivered'
 
 ## How many users have only made one purchase? Two purchases? Three+ purchases?
 ```
--- WIP
+select count(a.user_id), a.count
+from (
 select user_id,
     count(order_id)
 from dbt_tgraham.stg_orders
 group by user_id
-having count(*) <= 3
+having count(*) <= 3) a
+
+group by 2
 order by 2
 
 ```
 
 ## On average, how many unique sessions do we have per hour?
+
+```
+with total_hours as (
+    select count(distinct(date_trunc('day', created_at))) * 24
+    from dbt_tgraham.stg_events
+),
+
+total_sessions as (
+    select count(distinct session_id)
+    from dbt_tgraham.stg_events
+)
+
+-- divde total_hours by total_sessions
+
+ select (
+         select *
+         from total_hours
+     ) / (
+         select *
+         from total_sessions
+     ) as average_sessions_per_hour
+
+```

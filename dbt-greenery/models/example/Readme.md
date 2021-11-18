@@ -65,3 +65,17 @@ where status = 'delivered'
      ) / 24) as average_days_per_delivery
 
 ```
+
+## How many users have only made one purchase? Two purchases? Three+ purchases?
+```
+-- WIP
+select user_id,
+    count(order_id)
+from dbt_tgraham.stg_orders
+group by user_id
+having count(*) <= 3
+order by 2
+
+```
+
+## On average, how many unique sessions do we have per hour?

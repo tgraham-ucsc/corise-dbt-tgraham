@@ -31,26 +31,26 @@ models:
     columns:
       - name: order_id
         tests:
-          - not_null            
- - name: stg_orders
+          - not_null
+  - name: stg_orders
     description: Order summary information.
     columns:
       - name: order_id
         tests:
           - not_null
- - name: stg_products
+  - name: stg_products
     description: Detail information for products
     columns:
       - name: product_id
         tests:
           - not_null
- - name: stg_promos
+  - name: stg_promos
     description: Information for product promotions
     columns:
       - name: promo_id
         tests:
           - not_null
- - name: stg_users
+  - name: stg_users
     description: Personal information about our users
     columns:
       - name: user_id

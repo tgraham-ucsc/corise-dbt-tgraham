@@ -14,3 +14,45 @@ models:
       - name: weight
         tests:
           - positive_values
+  - name: stg_addresses
+    description: Customer address information.
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+  - name: stg_events
+    description: Web traffic information.
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+  - name: stg_order_items
+    description: Detail informaiton regarding order content.
+    columns:
+      - name: order_id
+        tests:
+          - not_null            
+ - name: stg_orders
+    description: Order summary information.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+ - name: stg_products
+    description: Detail information for products
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+ - name: stg_promos
+    description: Information for product promotions
+    columns:
+      - name: promo_id
+        tests:
+          - not_null
+ - name: stg_users
+    description: Personal information about our users
+    columns:
+      - name: user_id
+        tests:
+          - not_null             

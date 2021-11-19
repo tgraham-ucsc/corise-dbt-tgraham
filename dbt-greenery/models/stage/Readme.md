@@ -1,3 +1,4 @@
+### Week 1 Questions
 
 ## How many users do we have?
 
@@ -9,6 +10,11 @@ with total_users as (
 )
 select *
 from total_users
+
+ count 
+-------
+   130
+(1 row)
 
 ```
 ## On average, how many orders do we receive per hour?
@@ -64,11 +70,16 @@ where status = 'delivered'
          from total_orders
      ) / 24) as average_days_per_delivery
 
+ average_orders_per_hour 
+-------------------------
+                       8
+(1 row)
+
 ```
 
 ## How many users have only made one purchase? Two purchases? Three+ purchases?
 ```
-select count(a.user_id), a.count
+select count(a.user_id) as number_of_users, a.count as number_of_purchases
 from (
 select user_id,
     count(order_id)
@@ -78,6 +89,13 @@ having count(*) <= 3) a
 
 group by 2
 order by 2
+
+ number_of_users | number_of_purchases 
+-----------------+---------------------
+              25 |                   1
+              22 |                   2
+              32 |                   3
+
 
 ```
 
@@ -103,5 +121,9 @@ total_sessions as (
          select *
          from total_sessions
      ) as average_sessions_per_hour
+
+average_sessions_per_hour 
+---------------------------
+                         2     
 
 ```

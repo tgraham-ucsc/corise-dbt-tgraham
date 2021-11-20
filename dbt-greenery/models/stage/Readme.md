@@ -75,10 +75,9 @@ where status = 'delivered'
          from total_orders
      ) / 24) as average_days_per_delivery
 
- average_orders_per_hour 
--------------------------
-                       8
-(1 row)
+ average_days_per_delivery 
+---------------------------
+                         4
 
 ```
 

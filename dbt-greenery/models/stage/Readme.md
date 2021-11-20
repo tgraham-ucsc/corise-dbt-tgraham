@@ -40,6 +40,11 @@ total_orders as (
          from total_hours
      ) as average_orders_per_hour
 
+ average_orders_per_hour 
+-------------------------
+                       8
+(1 row)
+
 ```
 
 ## On average, how long does an order take from being placed to being delivered?
@@ -122,8 +127,9 @@ total_sessions as (
          from total_sessions
      ) as average_sessions_per_hour
 
-
-```
 average_sessions_per_hour 
 ---------------------------
                          2     
+
+```
+

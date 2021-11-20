@@ -122,8 +122,8 @@ total_sessions as (
          from total_sessions
      ) as average_sessions_per_hour
 
+
+```
 average_sessions_per_hour 
 ---------------------------
                          2     
-
-```

@@ -6,6 +6,6 @@
 
 SELECT 
     promo_id,
-    discout,
+    discout as discount,
     status
 FROM {{ source('tutorial', 'promos') }}

@@ -6,6 +6,25 @@ Repeat Rate = Users who purchased 2 or more times / users who purchased
 
 What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again? If you had more data, what features would you want to look into to answer this question?
 
+###### Indicators for likely additional purchases
+- high number of previous purchases
+- high number of total page views
+- recent visits
+- time between last visit and last purchase
+- high number of total lifetime orders
+- high number of purchases with promos
+- low number of returns
+
+###### Indicators for non-likely future purchases
+- low number of total lifetime purchases
+- low number of total page views
+- no recent visits
+- item returned
+
+###### Additional Data 
+- product reviews / comments
+- ??
+
 NOTE: This is a hypothetical question vs. something we can analyze in our Greenery data set. Think about what exploratory analysis you would do to approach this question.
 
 More stakeholders are coming to us for data, which is great! But we need to get some more models created before we can help. Create a marts folder, so we can organize our models, with the following subfolders for business units:

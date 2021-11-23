@@ -9,7 +9,7 @@ Repeat Rate = Users who purchased 2 or more times / users who purchased
         user_id
     from dbt_tgraham.base_orders
     group by 2
-    HAVING count(distinct order_id) > 1
+    having count(distinct order_id) > 1
 ),
 total_orders as (
     select count(order_id)

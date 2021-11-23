@@ -4,6 +4,28 @@ What is our user repeat rate?
 
 Repeat Rate = Users who purchased 2 or more times / users who purchased
 
+```with multiple_orders as (
+    select count(distinct order_id),
+        user_id
+    from dbt_tgraham.base_orders
+    group by 2
+    HAVING count(distinct order_id) > 1
+),
+total_orders as (
+    select count(order_id)
+    from dbt_tgraham.base_orders
+)
+select (
+        
+            select *
+            from total_orders
+        ) / (
+            select count(*)
+            from multiple_orders
+        ) as repeat_rate
+
+```
+
 What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again? If you had more data, what features would you want to look into to answer this question?
 
 ###### Indicators for likely additional purchases

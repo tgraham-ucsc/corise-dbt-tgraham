@@ -20,7 +20,5 @@ SELECT
   o.status,
   p.discount
 FROM {{ ref ('base_orders') }} o
-JOIN {{ ref ('base_promos') }} p
+Left JOIN {{ ref ('base_promos') }} p
 on o.promo_id = p.promo_id
-
-

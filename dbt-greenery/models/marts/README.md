@@ -1,1 +1,0 @@
-![alt text](https://github.com/tgraham-ucsc/corise-dbt-tgraham/blob/main/erd.png?raw=true)

@@ -72,9 +72,9 @@ Paste in an image of your DAG from the docs
 
 
 
-### Working Notes
+## Working Notes
 
-#### product_event_facts
+### product_event_facts
 Contains web traffic information at the product level.  This model uses the intermediate model int_product_events that parses out the product id from the page_url and pivots the event_type based on product_id.
 
 ### user_order_facts

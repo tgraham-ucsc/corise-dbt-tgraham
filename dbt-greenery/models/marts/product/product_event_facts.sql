@@ -15,11 +15,11 @@ select
     date_trunc('day', max(event_date)),
     date_trunc('day', min(event_date))
   ) as time_between,
-  { { dbt_utils.pivot(
+  {{ dbt_utils.pivot(
     'event_type',
     dbt_utils.get_column_values(ref('int_product_events'), 'event_type')
-  ) } }
-from { { ref('int_product_events') } }
+  ) }}
+from {{ ref('int_product_events') }}
 group by product_name,
   product_price
 )

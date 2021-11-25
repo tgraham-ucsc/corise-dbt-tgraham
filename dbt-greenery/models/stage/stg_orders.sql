@@ -15,7 +15,7 @@ SELECT
   o.order_total,
   o.tracking_id,
   o.shipping_service,
-  o.estimated_delivery_at as estimate_delivery_date,
+  o.estimated_delivery_at as estimated_delivery_date,
   o.delivered_at as actual_delivery_date,
   o.status as order_status,
   p.discount as promo_discount

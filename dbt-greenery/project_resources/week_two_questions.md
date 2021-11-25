@@ -69,3 +69,28 @@ Explain the marts models you added. Why did you organize the models in the way y
 Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
 
 Paste in an image of your DAG from the docs
+
+
+
+### Working Notes
+
+#### product_event_facts
+Contains web traffic information at the product level.  This model uses the intermediate model int_product_events that parses out the product id from the page_url and pivots the event_type based on product_id.
+
+### user_order_facts
+Contains order information at the customer level. This model uses the dim_users model as well as stg_orders to build the final results.  Addtional values could be added such as average order ammount, time between orders, repeat_rate.
+
+### dim_users
+Contains information about the customer base, brings together information from stg_users and stg_addresses and keys off of user_id.
+
+### fct_orders
+Contains information about order information, who, what, when, how much, status, etc.  It is located in the core models folder as it can be reused for additional order bases analysis.
+
+### needing work and clarification
+- dim_products
+- fct_events 
+
+### Next steps
+- build model that profiles user events and corelates them to orders
+- work on tests 
+

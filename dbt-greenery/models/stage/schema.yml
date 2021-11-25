@@ -56,3 +56,9 @@ models:
       - name: user_id
         tests:
           - not_null             
+  - name: fct_events
+    description: Contains informaiton about web traffic
+    columns:
+      - name: event_id
+        tests:
+          - not_null  

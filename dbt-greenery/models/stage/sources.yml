@@ -35,3 +35,6 @@ sources:
       - name: superheroes 
         loaded_at_field: created_at
         description: Contains demographic information about each superhero
+      - name: fct_events 
+        loaded_at_field: created_at
+        description: Contains event fact informaiton

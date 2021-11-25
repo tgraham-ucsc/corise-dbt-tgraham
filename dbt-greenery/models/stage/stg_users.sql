@@ -10,7 +10,7 @@ SELECT
     first_name,
     last_name,
     first_name || ' ' || last_name AS full_name,
-    email,
+    email as email_address,
     phone_number,
     created_at,
     updated_at,

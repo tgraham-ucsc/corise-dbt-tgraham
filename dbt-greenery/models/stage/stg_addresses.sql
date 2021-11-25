@@ -5,7 +5,6 @@
 }}
 
 select 
-    id,
     address_id,
     address,
     zipcode,

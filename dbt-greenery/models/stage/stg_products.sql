@@ -6,7 +6,7 @@
 
 SELECT id,
     product_id,
-    name,
-    price,
-    quantity
+    name as product_name,
+    price as product_price,
+    quantity as available_quantity
 FROM {{ source('tutorial', 'products') }}

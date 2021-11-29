@@ -6,6 +6,7 @@
 
 
 select 
+  o.order_id || '-' || oi.product_id as surrogate_key,
   o.order_id,
   o.user_id,
   o.order_date,

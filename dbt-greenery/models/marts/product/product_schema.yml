@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: product_event_facts
+    description: Contains web traffic information at the product level. 
+    columns:
+      - name: product_name
+        tests:
+          - not_null
+      - name: product_price
+        tests:
+          - positive_values

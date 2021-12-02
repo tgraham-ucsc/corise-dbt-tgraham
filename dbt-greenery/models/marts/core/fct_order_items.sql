@@ -17,6 +17,14 @@ select
   o.shipping_service,
   o.estimated_delivery_date,
   o.actual_delivery_date,
-  o.promo_discount
+  o.promo_discount,
+  oi.product_id,
+  oi.order_quantity,
+  p.product_name
 from {{ ref('stg_orders') }} o
+left join {{ ref('stg_order_items') }} oi
+  on o.order_id = oi.order_id
+  left join {{ ref('dim_products') }} p 
+  on oi.product_id = p.product_id
+
  

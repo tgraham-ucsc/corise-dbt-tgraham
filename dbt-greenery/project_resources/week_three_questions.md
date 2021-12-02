@@ -10,5 +10,14 @@
 3355 total events
 130 total users
 
+400 / 3355 = 8
+
+
+
+
 
 ### What is our conversion rate by product?
+
+
+
+Macro - case statement to null list in fct_events

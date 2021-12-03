@@ -1,11 +1,5 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
 
-
-SELECT 
+select 
   id,
   order_id,
   user_id,
@@ -20,4 +14,4 @@ SELECT
   estimated_delivery_at,
   delivered_at,
   status
-FROM {{ source('tutorial', 'orders') }}
+from {{ source('tutorial', 'orders') }}

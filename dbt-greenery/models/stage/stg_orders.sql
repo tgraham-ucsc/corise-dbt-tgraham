@@ -1,10 +1,4 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
-
-SELECT 
+select
   o.order_id,
   o.user_id,
   o.promo_id,
@@ -19,6 +13,6 @@ SELECT
   o.delivered_at as actual_delivery_date,
   o.status as order_status,
   p.discount as promo_discount
-FROM {{ ref ('base_orders') }} o
-Left JOIN {{ ref ('base_promos') }} p
+from {{ ref ('base_orders') }} o
+Left join {{ ref ('base_promos') }} p
 on o.promo_id = p.promo_id

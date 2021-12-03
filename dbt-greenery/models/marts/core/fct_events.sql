@@ -4,6 +4,17 @@
   )
 }}
 
+{% set query %}
+
+  select distinct product_id
+  from {{ ref('stg_events') }}
+  where product_id not in (
+      select product_id
+      from {{ ref('dim_products') }}
+  )
+
+    {% endset %}
+
 
 select 
    e.event_id,
@@ -12,16 +23,13 @@ select
    e.page_url,
    e.event_date,
    e.event_type,
-   case 
-      when e.product_id = 'signup' then null
-      when e.product_id = 'checkout' then null
-      when e.product_id = 'shipping' then null
-      when e.product_id = 'browse' then null
-      when e.product_id = 'help' then null    
-      when e.product_id = 'greenary.com' then null            
-      else 
-        e.product_id
-   end,
+  case
+     {% for product_id in get_result_set(query) -%}
+       when e.product_id = '{{ product_id }}' then null 
+     {% endfor -%}
+  else
+   e.product_id
+  end, 
    p.product_name,
    p.product_price
 from {{ ref('stg_events') }} e

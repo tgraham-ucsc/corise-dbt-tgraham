@@ -1,11 +1,3 @@
-{{
-  config(
-    materialized='table'
-  )
-}}
-
-
-
 with add_to_cart as (
     
     select 
@@ -49,6 +41,7 @@ select
   total_orders.orders,
   page_views.page_views,
   page_views.product_name,
-  (page_views.page_views / total_orders.orders) as conversion_rate
+ round(total_orders.orders * 100.0 / page_views.page_views, 1) as conversion_rate
 from page_views
-  join total_orders on page_views.product_name = total_orders.product_name
+  join total_orders 
+  on page_views.product_name = total_orders.product_name

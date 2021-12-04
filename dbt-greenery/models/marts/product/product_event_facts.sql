@@ -30,18 +30,14 @@ product_event_facts as (
   {% for event_type in get_result_set(query) %}
   , sum(case when fe.event_type = '{{event_type}}' then 1 else 0 end) as {{event_type}} 
   {% endfor %}
-  ,product_conv_rate.orders as orders_by_product
-  ,product_conv_rate.conversion_rate
+
+   ,product_conv_rate.orders as orders_by_product
+   ,product_conv_rate.conversion_rate
   from {{ ref('fct_events') }} fe
   join product_conv_rate
-  on fe.product_name = product_conv_rate.product_name
+   on fe.product_name = product_conv_rate.product_name
   group by fe.product_name, fe.product_price, product_conv_rate.conversion_rate, product_conv_rate.orders
 
 )
 
 select * from product_event_facts
-
-
-
-
-

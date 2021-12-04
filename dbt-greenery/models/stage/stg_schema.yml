@@ -44,12 +44,6 @@ models:
       - name: product_id
         tests:
           - not_null
-  - name: stg_promos
-    description: Information for product promotions
-    columns:
-      - name: promo_id
-        tests:
-          - not_null
   - name: stg_users
     description: Personal information about our users
     columns:

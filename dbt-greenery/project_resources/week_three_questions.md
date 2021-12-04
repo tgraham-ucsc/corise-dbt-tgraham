@@ -16,7 +16,7 @@ The conversion rate is the number of conversions divided by the total number of 
 
 ### What is our conversion rate by product?
 
-- models/product/intermediate/int_conv_rate_product.sql
+- [models/product/intermediate/int_conv_rate_product.sql](https://github.com/tgraham-ucsc/corise-dbt-tgraham/blob/main/dbt-greenery/models/marts/product/intermediate/int_conv_rate_product.sql)
 
 ```
  orders | page_views |    product_name     | conversion_rate 

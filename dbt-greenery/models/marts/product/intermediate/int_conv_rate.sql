@@ -9,7 +9,7 @@ with total_orders as (
 total_visits as (
 
     select count(session_id) as visits
-    from from {{ ref('fct_events') }}
+    from {{ ref('fct_events') }}
 
 )
 

@@ -1,0 +1,10 @@
+version: 2
+
+macros:
+  - name: get_result_set
+    description: a macro that will return the result of a sql query
+    arguments:
+      - name: query
+        type: string
+        description: Allows for the construction and iteration of a data set likely much better ways to do this.
+      

@@ -1,8 +1,13 @@
 
+## 1. Questions
+
+
 ### conversion rate
 
 ```
-The conversion rate is the number of conversions divided by the total number of visitors. For example, if an ecommerce site receives 200 visitors in a month and has 50 sales, the conversion rate would be 50 divided by 200, or 25%.
+The conversion rate is the number of conversions divided by the total number of visitors. 
+For example, if an ecommerce site receives 200 visitors in a month and has 50 sales, 
+the conversion rate would be 50 divided by 200, or 25%.
 
 ```
 
@@ -16,7 +21,7 @@ The conversion rate is the number of conversions divided by the total number of 
 
 ### What is our conversion rate by product?
 
-- models/product/intermediate/int_conv_rate_product.sql
+- [models/product/intermediate/int_conv_rate_product.sql] (https://github.com/tgraham-ucsc/corise-dbt-tgraham/blob/main/dbt-greenery/models/marts/product/intermediate/int_conv_rate_product.sql)
 
 ```
  orders | page_views |    product_name     | conversion_rate 
@@ -42,19 +47,22 @@ The conversion rate is the number of conversions divided by the total number of 
 ```
 
 
-Macro - case statement to null list in fct_events
+### Create a macro to simplify part of a model(s)
 
-(2) We’re getting really excited about dbt macros after learning more about them and want to apply them to improve our dbt project. 
+Created the macro [get_result_set](../macros/get_result_set.sql) to it allows for the construction and iteration of a data set.
+ Likely much better ways to do this, but I'm using it if [fct_events](../models/marts/core/fct_events.sql) to null out product_id if 
+ there is not a corresponding product_id in the dim_products table.  And using it in [product_fact_events](../models/marts/product/product_fct_events.sql)
+ to loop through event_types and group and aggregate accordingly.  Like I said, probably much better ways to do this ;)
 
-Create a macro to simplify part of a model(s). Think about what would improve the usability or modularity of your code by applying a macro. Large case statements, or blocks of SQL that are often repeated make great candidates. Document the macro(s) using a .yml file in the macros directory.
-
--- created get_result_set.sql macro, it probably exists in the packages universe somewhere, but I was able to use it in fct_events to dynamically null out product_id based on a query to find product_id in stg_events that don't have a corresponding product_id in dim_products.  Assuming that if we don't have a valid product_id we should null the column value out in fct_events
+###  
 
 
 
-Note: One potential macro in our data set is aggregating event types per session. Start here as your first macro and add other macros if you want to go further.
 
-## You Are Here:
+
+
+
+
 
 (3) We’re starting to think about granting permissions to our dbt models in our postgres database so that other roles can have access to them.
 

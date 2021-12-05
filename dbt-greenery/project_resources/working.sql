@@ -1,19 +1,10 @@
 
-with total_orders as (
+{% set query %}
 
-   select count(*) as orders
-   from {{ ref('fct_events') }}
-   where event_type = 'checkout'
+  select * from dbt_tgraham.int_conv_rate_product}
+  
+{% endset %}
 
-),
 
-total_visits as (
-
-    select count(session_id) as visits
-    from from {{ ref('fct_events') }}
-
-)
-
-select round(total_orders.orders * 100.0 / total_visits.visits, 1) as conversion_rate
-from total_orders, total_visits
+select get_result_set(query)
 

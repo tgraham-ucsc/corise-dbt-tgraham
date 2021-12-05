@@ -3,6 +3,9 @@ version: 2
 models:
   - name: dim_users
     description: Contains information about our user base including contact and address information.
+    tests:
+    - dbt_expectations.expect_table_row_count_to_equal:
+        value: 130   
     columns:
       - name: user_id
         description: primary key
@@ -11,10 +14,14 @@ models:
           - unique
   - name: fct_events
     description: Contains informaiton about web traffic
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          compare_model: ref("stg_events")        
     columns:
       - name: event_id
         tests:
-          - not_null            
+          - not_null
+                      
   - name: fct_orders
     description: Contains information about order information, who, what, when, how much, status.
     columns:

@@ -3,13 +3,16 @@
 -- HINT: you can use the grant macro example from this week and make any necessary changes for postgres syntax
 
 
-{% macro grant(role) %}
+{% macro grant_privs(role) %}
 
     {% set sql %}
-      GRANT USAGE ON SCHEMA {{ schema }} TO ROLE {{ role }};
-      GRANT SELECT ON {{ this }} TO ROLE {{ role }};
+    
+      grant usage on schema {{ schema }} to {{ role }};
+      grant select on all tables in schema {{ schema }} to {{ role }};
+      
     {% endset %}
 
     {% set table = run_query(sql) %}
 
 {% endmacro %}
+

@@ -51,7 +51,7 @@ the conversion rate would be 50 divided by 200, or 25%.
 
 Created the macro [get_result_set](../macros/get_result_set.sql) to it allows for the construction and iteration of a data set.
  Likely much better ways to do this, but I'm using it if [fct_events](../models/marts/core/fct_events.sql) to null out product_id if 
- there is not a corresponding product_id in the dim_products table.  And using it in [product_fact_events](../models/marts/product/product_fct_events.sql)
+ there is not a corresponding product_id in the dim_products table.  And using it in [product_event_facts](../models/marts/product/product_event_facts.sql)
  to loop through event_types and group and aggregate accordingly.  Like I said, probably much better ways to do this ;)
 
 ## 3. Add a post hook to your project

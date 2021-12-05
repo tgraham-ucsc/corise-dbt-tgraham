@@ -12,7 +12,6 @@ models:
           - not_null
   - name: int_conv_rate_product
     description: Table contains conversion rate by product
-    
     columns:
       - name: orders
         description: the total number of orders by product
@@ -34,4 +33,3 @@ models:
         tests:
           - not_null
           - positive_values
-    

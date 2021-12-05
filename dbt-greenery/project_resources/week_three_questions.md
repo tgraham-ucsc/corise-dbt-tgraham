@@ -11,7 +11,6 @@ the conversion rate would be 50 divided by 200, or 25%.
 
 ```
 
-
 ### What is our overall conversion rate?
 
 - [models/product/intermediate/int_conv_rate.sql](../models/marts/product/intermediate/int_conv_rate_product.sql)

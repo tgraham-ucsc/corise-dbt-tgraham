@@ -21,7 +21,7 @@ the conversion rate would be 50 divided by 200, or 25%.
 
 ### What is our conversion rate by product?
 
-- [models/product/intermediate/int_conv_rate_product.sql] (https://github.com/tgraham-ucsc/corise-dbt-tgraham/blob/main/dbt-greenery/models/marts/product/intermediate/int_conv_rate_product.sql)
+- [models/product/intermediate/int_conv_rate_product.sql](../models/marts/product/intermediate/int_conv_rate_product.sql)
 
 ```
  orders | page_views |    product_name     | conversion_rate 
@@ -47,25 +47,18 @@ the conversion rate would be 50 divided by 200, or 25%.
 ```
 
 
-### Create a macro to simplify part of a model(s)
+## 2. Create a macro to simplify part of a model(s)
 
 Created the macro [get_result_set](../macros/get_result_set.sql) to it allows for the construction and iteration of a data set.
  Likely much better ways to do this, but I'm using it if [fct_events](../models/marts/core/fct_events.sql) to null out product_id if 
  there is not a corresponding product_id in the dim_products table.  And using it in [product_fact_events](../models/marts/product/product_fct_events.sql)
  to loop through event_types and group and aggregate accordingly.  Like I said, probably much better ways to do this ;)
 
-###  
+## 3. Add a post hook to your project
+
+This was straight forward enough and the macro is located [grant_roles](../macros/grant_roles.sql).  I spent a stupid amount of time trying to 
+figure out how to create the "reporting" role if it did not exist.  Still stuck on that one ;).
 
 
-
-
-
-
-
-
-
-(3) We’re starting to think about granting permissions to our dbt models in our postgres database so that other roles can have access to them.
-
-Add a post hook to your project to apply grants to the role “reporting”. Create reporting role first by running "CREATE ROLE reporting" in your database instance.
-NOTE:: After you create the role you still need to grant it usage access on your schema dbt_firstname_lastname which can be done using on-run-end
-HINT: you can use the grant macro example from this week and make any necessary changes for postgres syntax
+## 4. Install a package (i.e. dbt-utils, dbt-expectations) 
+dbt-expectations and dbt-utils are impressive, I added some tests from dbt-expectations to some of the models. Also added dbt_date and created date dims as and experiment.  Super powerful.  

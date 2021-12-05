@@ -62,3 +62,6 @@ figure out how to create the "reporting" role if it did not exist.  Still stuck 
 
 ## 4. Install a package (i.e. dbt-utils, dbt-expectations) 
 dbt-expectations and dbt-utils are impressive, I added some tests from dbt-expectations to some of the models. Also added dbt_date and created date dims as and experiment.  Super powerful.  
+
+## 5. Publish DAG
+The Dag still seems busy but the general concepts are coming into focus.

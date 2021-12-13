@@ -38,3 +38,20 @@ sources:
       - name: fct_events 
         loaded_at_field: created_at
         description: Contains event fact informaiton
+
+exposures:
+  
+  - name: exposure_week_4
+    type: dashboard
+    maturity: low
+    url: https://www.youtube.com/watch?v=F5lA-ODNeoU
+    description: >
+      Going where the water, tastes like wine ...
+    
+    depends_on:
+      - ref('fct_events')
+      - ref('dim_users')
+      
+    owner:
+      name: Data Team 
+      email: data@datashop.com
